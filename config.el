@@ -2,6 +2,7 @@
 
 (load! "+private" doom-private-dir t)
 (load! "+format" doom-private-dir)
+(load! "+tabs" doom-private-dir)
 (load! "+bindings.el" doom-private-dir)
 
 (setq display-line-numbers-type nil
@@ -9,9 +10,8 @@
       flyspell-delay nil
 
       ;; lsp-ui-sideline is redundant with eldoc and much more invasive, so
-      ;; siable it by default.
+      ;; disable it by default.
       lsp-ui-sideline-enable nil
-      lsp-enable-symbol-highlighting nil
 
       ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
       ;; are the three important ones:
