@@ -2,9 +2,8 @@
 
 (load! "+private" doom-private-dir t)
 (load! "+format" doom-private-dir)
+(load! "+bindings.el" doom-private-dir)
 
-;;
-;;; Settings
 (setq display-line-numbers-type nil
       company-idle-delay nil
       flyspell-delay nil
@@ -38,6 +37,10 @@
       ;; Silence all that useless output
       direnv-always-show-summary nil
 
+      ;; Switch to the new window after splitting
+      evil-split-window-below t
+      evil-vsplit-window-right t
+
       ;; Don't restore the wconf after quitting magit, it's jarring
       magit-save-repository-buffers nil
       magit-inhibit-save-previous-winconf t
@@ -50,29 +53,3 @@
 
 ;; I prefer search matching to be ordered; it's more precise
 (add-to-list 'ivy-re-builders-alist '(counsel-projectile-find-file . ivy--regex-plus))
-
-
-;;
-;;; Modules
-(use-package! imenu-list
-  :commands imenu-list-smart-toggle
-  :config
-  (set-popup-rule! "^\\*Ilist"
-    :side 'left :size 35 :quit nil :select t :ttl 0)
-  :init
-  (map! :leader :desc "imenu" "oi"
-        (lambda()
-          (interactive)
-          ;; fix conflicts with treemacs pop-up
-          (if (featurep! :ui treemacs)
-              (pcase (treemacs-current-visibility)
-                ('visible (delete-window (treemacs-get-local-window)))))
-          (imenu-list-smart-toggle))))
-
-(after! evil
-  ;; Switch to the new window after splitting
-  (setq evil-split-window-below t
-        evil-vsplit-window-right t)
-  (map! :n "M-r" #'evil-multiedit-match-all
-        ;; Avoid to strike repeatedly the leader key
-        :n "w" evil-window-map))
