@@ -5,59 +5,45 @@
 
 ;;
 ;;; Settings
-(setq
- ;; This determines the style of line numbers in effect. If set to `nil', line
- ;; numbers are disabled. For relative line numbers, set this to `relative'.
- display-line-numbers-type nil
+(setq display-line-numbers-type nil
+      company-idle-delay nil
+      flyspell-delay nil
 
- ;; IMO, modern editors have trained a bad habit into us all: a burning
- ;; need for completion all the time -- as we type, as we breathe, as we
- ;; pray to the ancient ones -- but how often do you *really* need that
- ;; information? I say rarely. So opt for manual completion:
- company-idle-delay nil
+      ;; lsp-ui-sideline is redundant with eldoc and much more invasive, so
+      ;; siable it by default.
+      lsp-ui-sideline-enable nil
+      lsp-enable-symbol-highlighting nil
 
- ;; The spell checking is quite intrusive and should be activate on purpose
- flyspell-delay nil
+      ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
+      ;; are the three important ones:
+      ;;
+      ;; + `doom-font'
+      ;; + `doom-variable-pitch-font'
+      ;; + `doom-big-font' -- used for `doom-big-font-mode'; use this for
+      ;;   presentations or streaming.
+      ;;
+      ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
+      ;; font string.
+      doom-font (font-spec :family "DejaVu Sans Mono" :size 14)
+      doom-big-font (font-spec :family "DejaVu Sans Mono" :size 20)
 
- ;; lsp-ui-sideline is redundant with eldoc and much more invasive, so
- ;; siable it by default.
- lsp-ui-sideline-enable nil
- lsp-enable-symbol-highlighting nil
+      ;; There are two ways to load a theme. Both assume the theme is installed and
+      ;; available. You can either set `doom-theme' or manually load a theme with the
+      ;; `load-theme' function.
+      doom-theme 'doom-dracula
 
- ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
- ;; are the three important ones:
- ;;
- ;; + `doom-font'
- ;; + `doom-variable-pitch-font'
- ;; + `doom-big-font' -- used for `doom-big-font-mode'; use this for
- ;;   presentations or streaming.
- ;;
- ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
- ;; font string.
- doom-font (font-spec :family "DejaVu Sans Mono" :size 14)
- doom-big-font (font-spec :family "DejaVu Sans Mono" :size 20)
+      ;; Enable avy search for all windows
+      avy-all-windows t
 
- ;; There are two ways to load a theme. Both assume the theme is installed and
- ;; available. You can either set `doom-theme' or manually load a theme with the
- ;; `load-theme' function.
- doom-theme 'doom-dracula
+      ;; Silence all that useless output
+      direnv-always-show-summary nil
 
- ;; Enable avy search for all windows
- avy-all-windows t
+      ;; Don't restore the wconf after quitting magit, it's jarring
+      magit-save-repository-buffers nil
+      magit-inhibit-save-previous-winconf t
 
- ;; Silence all that useless output
- direnv-always-show-summary nil
-
- ;; Don't restore the wconf after quitting magit, it's jarring
- magit-save-repository-buffers nil
- magit-inhibit-save-previous-winconf t
-
- ;; Switch to the new window after splitting
- evil-split-window-below t
- evil-vsplit-window-right t
-
- ;; Replace the "DOOM" image.
- fancy-splash-image (concat doom-private-dir "splash.png"))
+      ;; Replace the "DOOM" image.
+      fancy-splash-image (concat doom-private-dir "splash.png"))
 
 ;; Prevents some cases of Emacs flickering
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
@@ -65,26 +51,28 @@
 ;; I prefer search matching to be ordered; it's more precise
 (add-to-list 'ivy-re-builders-alist '(counsel-projectile-find-file . ivy--regex-plus))
 
+
 ;;
 ;;; Modules
 (use-package! imenu-list
   :commands imenu-list-smart-toggle
   :config
   (set-popup-rule! "^\\*Ilist"
-    :side 'right :size 35 :quit nil :select t :ttl 0)
+    :side 'left :size 35 :quit nil :select t :ttl 0)
   :init
-  (map! :leader
-        :desc "imenu" "oi"
-        (lambda ()
+  (map! :leader :desc "imenu" "oi"
+        (lambda()
           (interactive)
-          (if (bound-and-true-p lsp-mode)
-              (lsp-ui-imenu)
-            (imenu-list-smart-toggle))))
-  :bind ([remap imenu-list-goto-entry] . imenu-list-display-entry))
+          ;; fix conflicts with treemacs pop-up
+          (if (featurep! :ui treemacs)
+              (pcase (treemacs-current-visibility)
+                ('visible (delete-window (treemacs-get-local-window)))))
+          (imenu-list-smart-toggle))))
 
-;;
-;;; Keybinds
-(map! :after evil
-      :n "M-r" #'evil-multiedit-match-all
-      ;; Avoid to strike repeatedly the leader key
-      :n "w" evil-window-map)
+(after! evil
+  ;; Switch to the new window after splitting
+  (setq evil-split-window-below t
+        evil-vsplit-window-right t)
+  (map! :n "M-r" #'evil-multiedit-match-all
+        ;; Avoid to strike repeatedly the leader key
+        :n "w" evil-window-map))
