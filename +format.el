@@ -11,5 +11,5 @@
 
 (when (featurep! +onsave)
   (add-hook! '(c-mode-hook c++-mode-hook)
-    (defun clang-format-buffer-on-save()
+    (lambda()
       (add-hook! 'before-save-hook :local 'clang-format-buffer))))
