@@ -3,5 +3,3 @@
 
 (if (featurep! :tools format)
     (package! clang-format))
-
-(package! imenu-list)
