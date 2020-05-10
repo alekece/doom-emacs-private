@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - This CHANGELOG.md file
-- Djnni language support
+- Djnni and YAML language supports
 - New visual pop-up listing the content of **IList** buffer. The module should be added such as `:ui imenu` in *init.el* file. The option `+auto` permits to automatically close the pop-up when a symbol is selected.
 - Auto-formatting for *c/cpp* files thanks to **clang-format** emacs package.
 - New import module which include/delete *c/c++* headers automatically for now.
