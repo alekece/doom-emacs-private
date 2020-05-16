@@ -8,6 +8,7 @@ My private module for Doom Emacs.
   * [:ui](#lang)
   * [:lang](#lang)
   * [:editor](#ui)
+* [License](#license)
 
 ## Private configuration
 The `+private.example.el` contains all the private configuration  
@@ -26,4 +27,5 @@ Rename `+private.example.el` to `private.el` to enable the private configuration
 ### :editor
 * [import](modules/editor/import/README.md)
 
-
+# License
+Copyright © 2020 Alexis Le Provost. See LICENSE for details.
