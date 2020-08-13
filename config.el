@@ -3,11 +3,16 @@
 (load! "+private" doom-private-dir t)
 (load! "+format" doom-private-dir)
 (load! "+tabs" doom-private-dir)
+(load! "+cc" doom-private-dir)
+(load! "+rust" doom-private-dir)
 (load! "+bindings.el" doom-private-dir)
 
 (setq display-line-numbers-type nil
       company-idle-delay nil
       flyspell-delay nil
+
+      ;; Make any search case insensitive
+      case-fold-search t
 
       ;; lsp-ui-sideline is redundant with eldoc and much more invasive, so
       ;; disable it by default.
