@@ -5,3 +5,6 @@
       :n "w" evil-window-map
       :leader
       :desc "imenu" "oi" #'imenu-list-toggle)
+
+(use-package! treemacs
+  :config (define-key! evil-treemacs-state-map "w" evil-window-map))
