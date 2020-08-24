@@ -1,10 +1,6 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 (load! "+private" doom-private-dir t)
-(load! "+format" doom-private-dir)
-(load! "+tabs" doom-private-dir)
-(load! "+cc" doom-private-dir)
-(load! "+rust" doom-private-dir)
 (load! "+bindings.el" doom-private-dir)
 
 (setq display-line-numbers-type nil
@@ -58,3 +54,10 @@
 
 ;; I prefer search matching to be ordered; it's more precise
 (add-to-list 'ivy-re-builders-alist '(counsel-projectile-find-file . ivy--regex-plus))
+
+;; Sort tabs in order to ease navigation
+(after! tabs
+  (centaur-tabs-enable-buffer-reordering))
+
+(after! rustic
+  (setq rustic-lsp-server 'rust-analyzer))
