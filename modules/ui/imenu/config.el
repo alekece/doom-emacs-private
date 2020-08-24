@@ -12,3 +12,8 @@
         (interactive)
         (imenu-list-goto-entry)
         (imenu-list-smart-toggle)))))
+
+(after! imenu
+  (map!
+   :leader
+   :desc "imenu" "oi" #'imenu-list-toggle))
