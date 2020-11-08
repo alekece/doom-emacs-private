@@ -22,6 +22,7 @@ Rename `+private.example.el` to `private.el` to enable the private configuration
 * [djinni](modules/lang/djinni/README.md)
 * [yaml](modules/lang/yaml/README.md)
 * [arduino](modules/lang/arduino/README.md)
+* [ron](modules/lang/ron/README.md)
 ### :editor
 * [import](modules/editor/import/README.md)
 
