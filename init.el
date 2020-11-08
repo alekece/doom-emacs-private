@@ -164,6 +164,7 @@
        djinni
        yaml
        arduino
+       ron
 
        :email
        ;;(mu4e +gmail)
