@@ -7,7 +7,7 @@
       :after lsp-mode
       :desc "Inlay hints" "t i" #'lsp-rust-analyzer-inlay-hints-mode)
 
-(map! :map magit-mode-map
+(map! :map (magit-mode-map magit-diff-mode-map)
       :n "w" evil-window-map)
 
 (after! treemacs
