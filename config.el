@@ -35,7 +35,6 @@
       lsp-rust-analyzer-cargo-watch-enable t
       lsp-rust-analyzer-cargo-watch-command "clippy")
 
-
 ;; Prevents some cases of Emacs flickering
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
 
