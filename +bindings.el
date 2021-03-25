@@ -18,4 +18,6 @@
       :desc "Inlay hints" "t i" #'lsp-rust-analyzer-inlay-hints-mode)
 
 (after! treemacs
-  :config (define-key! evil-treemacs-state-map "w" evil-window-map))
+  :config
+  (define-key! evil-treemacs-state-map "w" evil-window-map)
+  (define-key! evil-treemacs-state-map "M-w" 'treemacs-set-width))

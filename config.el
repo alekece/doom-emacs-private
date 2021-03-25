@@ -44,3 +44,11 @@
 ;; Sort tabs in order to ease navigation
 (after! tabs
   (centaur-tabs-enable-buffer-reordering))
+
+(after! treemacs
+  :config (setq
+           ;; Collapse this many directories into one, when possible.
+           ;; A directory is collapsible when its content consists of nothing but another directory.
+           treemacs-collapse-dirs 5
+           treemacs-width 50
+           ))
