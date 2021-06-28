@@ -3,7 +3,9 @@
 (load! "+private" doom-private-dir t)
 (load! "+bindings.el" doom-private-dir)
 
-(setq display-line-numbers-type t
+(setq-default fill-column 100)
+
+(setq display-line-numbers-type nil
       company-idle-delay nil
       flyspell-delay nil
 
@@ -27,13 +29,9 @@
       ;; Don't restore the wconf after quitting magit, it's jarring
       magit-save-repository-buffers nil
       magit-inhibit-save-previous-winconf t
-
-      lsp-rust-server 'rust-analyzer
       lsp-rust-analyzer-server-display-inlay-hints nil
       lsp-rust-analyzer-display-parameter-hints t
-      lsp-rust-analyzer-display-chaining-hints t
-      lsp-rust-analyzer-cargo-watch-enable t
-      lsp-rust-analyzer-cargo-watch-command "clippy")
+      lsp-rust-analyzer-display-chaining-hints t)
 
 ;; Prevents some cases of Emacs flickering
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
