@@ -4,7 +4,7 @@
   :commands imenu-list-smart-toggle
   :config
   (set-popup-rule! "^\\*Ilist"
-    :side 'left :size 35 :quit nil :select t :ttl 0)
+    :side 'left :size 50 :quit nil :select t :ttl 0)
   (when (featurep! +auto)
     (define-key! imenu-list-major-mode-map
       [return]
