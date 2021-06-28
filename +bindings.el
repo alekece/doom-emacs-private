@@ -13,9 +13,9 @@
       :n "g R" 'magit-refresh-all
       :n "<tab>" 'magit-section-toggle)
 
-(map! :leader
-      :after lsp-mode
-      :desc "Inlay hints" "t i" #'lsp-rust-analyzer-inlay-hints-mode)
+(map! :map rustic-mode-map
+      :leader
+      :desc "Inlay hints" "ch" #'lsp-rust-analyzer-inlay-hints-mode)
 
 (after! treemacs
   :config
