@@ -21,3 +21,8 @@
   :config
   (define-key! evil-treemacs-state-map "w" evil-window-map)
   (define-key! evil-treemacs-state-map "M-w" 'treemacs-set-width))
+
+(after! lsp-ui
+  (map!
+   :leader
+   :desc "imenu" "oi" #'lsp-ui-imenu))
