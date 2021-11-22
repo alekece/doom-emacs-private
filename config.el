@@ -29,15 +29,13 @@
       ;; Don't restore the wconf after quitting magit, it's jarring
       magit-save-repository-buffers nil
       magit-inhibit-save-previous-winconf t
+      lsp-ui-doc-enable nil
       lsp-rust-analyzer-server-display-inlay-hints nil
       lsp-rust-analyzer-display-parameter-hints t
       lsp-rust-analyzer-display-chaining-hints t)
 
 ;; Prevents some cases of Emacs flickering
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
-
-;; I prefer search matching to be ordered; it's more precise
-(add-to-list 'ivy-re-builders-alist '(counsel-projectile-find-file . ivy--regex-plus))
 
 ;; Sort tabs in order to ease navigation
 (after! tabs
