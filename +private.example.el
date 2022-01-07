@@ -8,7 +8,8 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "/path/to/org")
+(setq org-directory "/path/to/org"
+      org-agenda-files '("/path/to/agenda.org"))
 
 ;; If you use `projectile' and don't want your projects in the default location below,
 ;; change `project-project-search-path'. It must be set before projectile loads!
