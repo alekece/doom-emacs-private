@@ -55,7 +55,7 @@
  fancy-splash-image (concat doom-private-dir "splash.png")
  doom-font (font-spec :family "DejaVu Sans Mono" :size 14)
  doom-big-font (font-spec :family "DejaVu Sans Mono" :size 20)
- doom-theme 'doom-vibrant)
+ doom-theme 'doom-material)
 
 ;; Prevents some cases of Emacs flickering
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
