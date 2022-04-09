@@ -173,6 +173,7 @@
        ;;zig               ; C, but simple
        arduino
        ron
+       just
 
        :email
        ;;(mu4e +gmail)
