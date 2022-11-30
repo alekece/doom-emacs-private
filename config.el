@@ -53,7 +53,7 @@
 
  ;; Tweak `doom' appearance
  fancy-splash-image (concat doom-private-dir "splash.png")
- doom-font (font-spec :family "DejaVu Sans Mono" :size 14)
+ doom-font (font-spec :family "DejaVu Sans Mono" :size 15)
  doom-big-font (font-spec :family "DejaVu Sans Mono" :size 20)
  doom-theme 'doom-material)
 
