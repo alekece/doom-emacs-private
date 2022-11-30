@@ -174,6 +174,7 @@
        arduino
        ron
        just
+       proto
 
        :email
        ;;(mu4e +gmail)
