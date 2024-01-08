@@ -25,6 +25,7 @@
        ;;ido               ; the other *other* search engine...
        ;;(ivy +icons +fuzzy +prescient)               ; a search engine for love and life
        (vertico +icons)
+       copilot
 
        :ui
        ;;deft              ; notational velocity for Emacs
