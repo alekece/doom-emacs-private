@@ -34,7 +34,7 @@
  lsp-ui-imenu-auto-refresh t
 
  ;; Inlay hints are useful but not all the time
- lsp-rust-analyzer-server-display-inlay-hints nil
+ lsp-inlay-hint-enable nil
  lsp-rust-analyzer-display-parameter-hints t
  lsp-rust-analyzer-display-chaining-hints t
 

@@ -13,7 +13,7 @@
 
 (map! :map rustic-mode-map
       :leader
-      :desc "Inlay hints" "ch" #'lsp-rust-analyzer-inlay-hints-mode)
+      :desc "Inlay hints" "ch" #'lsp-inlay-hints-mode)
 
 (after! lsp-ui
   (map!
