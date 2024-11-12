@@ -19,3 +19,11 @@
   (map!
    :leader
    :desc "imenu" "oi" #'lsp-ui-imenu))
+
+(use-package! drag-stuff
+   :defer t
+   :init
+  (map! "<M-up>"    #'drag-stuff-up
+        "<M-down>"  #'drag-stuff-down
+        "<M-left>"  #'drag-stuff-left
+        "<M-right>" #'drag-stuff-right))

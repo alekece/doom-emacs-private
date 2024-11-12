@@ -3,3 +3,5 @@
 
 (if (featurep! :tools format)
     (package! clang-format))
+
+(package! drag-stuff)
