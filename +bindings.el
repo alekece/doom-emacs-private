@@ -20,9 +20,15 @@
    :leader
    :desc "imenu" "oi" #'lsp-ui-imenu))
 
+(after! copilot
+  (map!
+   :leader
+   :desc "Copilot" "ta" #'copilot-mode
+   ))
+
 (use-package! drag-stuff
-   :defer t
-   :init
+  :defer t
+  :init
   (map! "<M-up>"    #'drag-stuff-up
         "<M-down>"  #'drag-stuff-down
         "<M-left>"  #'drag-stuff-left

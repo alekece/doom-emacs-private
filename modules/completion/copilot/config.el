@@ -1,4 +1,5 @@
-;;; lang/ron/config.el -*- lexical-binding: t; -*-
+;;; completion/copilot/config.el -*- lexical-binding: t; -*-
+
 (use-package! copilot
   :hook (prog-mode . copilot-mode)
   :bind (:map copilot-completion-map
@@ -6,3 +7,7 @@
               ("TAB" . 'copilot-accept-completion)
               ("C-TAB" . 'copilot-accept-completion-by-word)
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
+
+;; (with-eval-after-load 'company
+;;   ;; disable inline previews
+;;   (delq `company-preview-if-just-one-frontend company-frontends))
